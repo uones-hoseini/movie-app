@@ -1,20 +1,20 @@
-import { Button } from "bootstrap";
+import { Button } from "bootstrap"
 import React, { useState } from "react"
 
 function Modal() {
-  const [selectedMovie, setSelectedMovie] = useState(null);
-const [showModal, setShowModal] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null)
+  const [showModal, setShowModal] = useState(false)
 
-const openModal = (movie) => {
-  setSelectedMovie(movie);
-  setShowModal(true);
-};
+  // const openModal = (movie) => {
+  //   setSelectedMovie(movie)
+  //   setShowModal(true)
+  // }
 
-// Function to close modal
-const closeModal = () => {
-  setShowModal(false);
-  setSelectedMovie(null);
-};
+  // Function to close modal
+  const closeModal = () => {
+    setShowModal(false)
+    setSelectedMovie(null)
+  }
 
   return (
     <div>
@@ -23,7 +23,7 @@ const closeModal = () => {
           <Modal.Title>{selectedMovie?.Title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={selectedMovie?.Poster} alt={selectedMovie?.Title} style={{ width: "100%" }} />
+          <img src={selectedMovie?.Poster} alt={selectedMovie?.Title} style={{ width: "50%" }} />
           <p>{selectedMovie?.Description || "Description not available."}</p>
         </Modal.Body>
         <Modal.Footer>

@@ -39,11 +39,9 @@ function App() {
     setFavourites(newFavoutiteList)
   }
 
-  const genres = ["Action", "Comedy", "Drama", "Horror", "Romance","war"]; 
-  const filteredMovies = movies.filter(movie =>
-    selectedGenre ? movie.Genre && movie.Genre.includes(selectedGenre) : true
-  );
- 
+  const genres = ["Action", "Comedy", "Drama", "Horror", "Romance", "war"]
+  const filteredMovies = movies.filter((movie) => (selectedGenre ? movie.Genre && genres.Genre.includes(selectedGenre) : true))
+
   return (
     <div className="container-fluid movie-app ">
       <div className="row d-flex align-items-center mt-4 mb-4 m-4">
@@ -51,10 +49,9 @@ function App() {
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
         <br />
         <GenreDrop selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} genres={genres} />
-
       </div>
       <div className=" d-flex align-items-center mt-4 mb-4 ">
-        <MovieList handleFavouritesClick={addFavouriteMovie} movies={filteredMovies} Modal={Modal} favouriteComponent={AddFavourite} />
+        <MovieList handleFavouritesClick={addFavouriteMovie} movies={filteredMovies}  favouriteComponent={AddFavourite} moviess={movies} getMovieRequest={getMovieRequest} />
       </div>
       <div className=" d-flex align-items-center mt-4 mb-4 m-4">
         <MovieListHeading heading="Favoriets" />
@@ -63,8 +60,6 @@ function App() {
       <div className=" d-flex align-items-center mt-4 mb-4 ">
         <MovieList movies={favourites} handleFavouritesClick={RemoveFavoriteMovie} favouriteComponent={RemoveFavourite} />
       </div>
-  
-
     </div>
   )
 }
